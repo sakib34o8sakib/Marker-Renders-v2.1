@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marker Renders v2.1 - Interactive Guide</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+.os-btn.active {
+    background-color: #FCA311;
+    color: #ffffff;
+    border-color: #FCA311;
+}
+.marker-btn {
+    transition: all 0.2s ease-in-out;
+}
+.marker-btn:hover {
+    transform: scale(1.02);
+}
+</style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased">
+
+<nav class="bg-white border-b border-stone-200 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <span class="text-2xl mr-2" aria-hidden="true">&#127916;</span>
+                <span class="font-bold text-xl tracking-tight text-stone-900">Marker Renders <span class="text-[#FCA311]">v2.1</span></span>
+            </div>
+            <div class="hidden sm:flex space-x-6 items-center">
+                <button onclick="scrollToSection('use-guide')" class="text-stone-500 hover:text-stone-900 text-sm font-semibold">1. How to Use</button>
+                <button onclick="scrollToSection('install-guide')" class="text-stone-500 hover:text-stone-900 text-sm font-semibold">2. Install Guide</button>
+                <button onclick="scrollToSection('interface-demo')" class="text-stone-500 hover:text-stone-900 text-sm font-semibold">3. Tool Demo</button>
+                <button onclick="scrollToSection('troubleshoot')" class="bg-[#FCA311] hover:bg-orange-500 text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors">4. Get Support</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+
+    <section class="text-center py-6">
+        <span class="bg-orange-50 text-[#FCA311] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-orange-100">Workflow Automation</span>
+        <h1 class="text-4xl font-extrabold text-stone-900 mt-3 mb-4">Speed Up DaVinci Resolve Batch Rendering</h1>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+            Stop manually setting render points. This script detects your timeline's duration markers and automatically queues them up in seconds.
+        </p>
+
+        <!-- Premium Download Buttons Block -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 max-w-md mx-auto sm:max-w-none">
+            <a href="https://pub-1bd04926adf14ea1ba1afcaf102ca2cf.r2.dev/marker%20render.zip" class="w-full sm:w-auto bg-[#FCA311] hover:bg-orange-500 text-white font-bold px-8 py-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-base flex items-center justify-center space-x-3">
+                <span class="text-xl">&#10515;</span>
+                <span>Download Script Folder (.ZIP)</span>
+            </a>
+            <a href="https://drive.google.com/file/d/1v9UdsHzC4qEiuKvQhKXVn08jq37J6Fc4/view?usp=sharing" target="_blank" class="w-full sm:w-auto bg-white border border-stone-300 hover:border-stone-400 text-stone-700 font-semibold px-8 py-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-base flex items-center justify-center space-x-3">
+                <span class="text-xl">&#128193;</span>
+                <span>Download via Google Drive</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 1: HOW TO USE -->
+    <section id="use-guide" class="scroll-mt-20">
+        <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 sm:p-8">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="w-8 h-8 rounded-full bg-[#FCA311] text-white flex items-center justify-center font-bold">1</span>
+                <h2 class="text-2xl font-bold text-stone-900">How to Use (Duration Markers)</h2>
+            </div>
+            
+            <p class="text-stone-600 mb-6 leading-relaxed">
+                The script operates specifically on <strong>Duration Markers</strong> (markers stretched across a range of frames). Normal single-frame markers are ignored. This ensures your quick notes do not clutter your render queue.
+            </p>
+
+            <div class="bg-stone-50 p-5 rounded-lg border border-stone-100 mb-8 space-y-4">
+                <h3 class="font-bold text-stone-800 text-sm uppercase tracking-wider">&#128204; How to create a Duration Marker in Resolve:</h3>
+                <ul class="space-y-3 text-stone-600 text-sm">
+                    <li class="flex items-start">
+                        <span class="text-[#FCA311] mr-2" aria-hidden="true">&#9679;</span>
+                        <span>Place your playhead on the timeline, and press <strong>M</strong> on your keyboard to create a standard marker.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#FCA311] mr-2" aria-hidden="true">&#9679;</span>
+                        <span>Double-click the marker icon to open the settings dialog.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#FCA311] mr-2" aria-hidden="true">&#9679;</span>
+                        <span>Change the <strong>Duration</strong> field from <code>1</code> to any higher value (e.g., 120 frames), or hold <strong>Alt / Option</strong> and drag the marker's edge directly on your timeline.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: INSTALLATION -->
+    <section id="install-guide" class="scroll-mt-20">
+        <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
+            <div class="p-6 sm:p-8 border-b border-stone-150">
+                <div class="flex flex-wrap justify-between items-center gap-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-full bg-[#FCA311] text-white flex items-center justify-center font-bold">2</span>
+                        <h2 class="text-2xl font-bold text-stone-900">Installation Process</h2>
+                    </div>
+                    <div class="flex space-x-2 bg-stone-100 p-1 rounded-lg">
+                        <button id="os-win" class="os-btn active px-4 py-1.5 rounded-md text-xs font-bold transition-colors" onclick="setOS('win')">&#128187; Windows</button>
+                        <button id="os-mac" class="os-btn px-4 py-1.5 rounded-md text-xs font-bold text-stone-600 transition-colors bg-white hover:bg-stone-100" onclick="setOS('mac')">&#127822; macOS</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-6 sm:p-8 space-y-8">
+                <div class="flex">
+                    <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                        <div class="w-7 h-7 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center text-xs font-bold">A</div>
+                        <div class="h-full w-0.5 bg-stone-200 mt-2"></div>
+                    </div>
+                    <div class="pb-6">
+                        <h4 class="text-base font-bold text-stone-950">Set Up Resolve Scripting Settings</h4>
+                        <p class="text-stone-600 text-sm mt-1">
+                            Launch Resolve, open the main preferences window (<strong>DaVinci Resolve > Preferences > System > General</strong>). Set the <strong>External scripting using</strong> option to either <strong>Local</strong> or <strong>External</strong>, then click Save. Make sure you have python installed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                        <div class="w-7 h-7 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center text-xs font-bold">B</div>
+                        <div class="h-full w-0.5 bg-stone-200 mt-2"></div>
+                    </div>
+                    <div class="pb-6">
+                        <h4 class="text-base font-bold text-stone-950">Place the Script File</h4>
+                        <p class="text-stone-600 text-sm mt-1 mb-3">
+                            Copy the script file <code class="bg-stone-100 px-1 py-0.5 rounded text-xs font-mono text-[#FCA311]">marker render v2.1.py</code> and paste it in this folder path:
+                        </p>
+                        
+                        <div id="path-win" class="bg-stone-900 text-stone-100 p-4 rounded-md font-mono text-xs overflow-x-auto select-all">
+                            %appdata%\Blackmagic Design\DaVinci Resolve\Support\Fusion\Scripts\Utility
+                        </div>
+                        <div id="path-mac" class="bg-stone-900 text-stone-100 p-4 rounded-md font-mono text-xs overflow-x-auto select-all hidden">
+                            ~/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Scripts/Utility/
+                        </div>
+                        
+                        <p id="mac-warning" class="mt-3 text-xs text-amber-700 bg-amber-50 p-3 rounded-md border border-amber-200 hidden">
+                            &#9888; <strong>Mac User First Launch Note:</strong> The script initially shows a Windows <code>D:\</code> path when first loaded. Simply click <strong>Browse</strong>, set your preferred Mac directory, and the script will automatically remember your selection forever.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                        <div class="w-7 h-7 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center text-xs font-bold">C</div>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-bold text-stone-950">Open Workspace Scripts</h4>
+                        <p class="text-stone-600 text-sm mt-1">
+                            In Resolve, go to the top bar and click <strong>Workspace > Scripts > marker render v2.1</strong> to run the GUI.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: INTERFACE DEMO -->
+    <section id="interface-demo" class="scroll-mt-20">
+        <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 sm:p-8">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="w-8 h-8 rounded-full bg-[#FCA311] text-white flex items-center justify-center font-bold">3</span>
+                <h2 class="text-2xl font-bold text-stone-900">Script Interface Demo</h2>
+            </div>
+            
+            <p class="text-stone-600 mb-8 leading-relaxed">
+                Want to see how it works before installing? This is an interactive simulation of the exact window that will pop up inside DaVinci Resolve. Try typing prefixes, selecting rows, or toggling the duration format!
+            </p>
+
+            <!-- DaVinci Resolve Script UI Simulator -->
+            <div class="bg-[#212121] rounded shadow-2xl border border-stone-300 overflow-hidden max-w-[850px] mx-auto font-sans select-none flex flex-col">
+                <!-- Windows Title Bar -->
+                <div class="bg-[#F3F3F3] text-black px-3 py-1.5 flex items-center justify-between border-b border-[#ccc] select-none">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3.5 h-3.5 flex items-center justify-center bg-gradient-to-br from-[#e03131] via-[#e8590c] to-[#2f9e44] rounded-[2px]">
+                            <div class="w-1.5 h-1.5 bg-white rounded-full opacity-80"></div>
+                        </div>
+                        <span class="text-[13px] text-gray-800">Marker Renders v2.1</span>
+                    </div>
+                    <div class="flex space-x-4 items-center px-1">
+                        <span class="text-gray-600 hover:text-black cursor-default text-lg leading-none">&minus;</span>
+                        <span class="text-gray-600 hover:text-black cursor-default text-sm leading-none">&#9744;</span>
+                        <span class="text-gray-600 hover:text-black cursor-default text-sm leading-none">&#10005;</span>
+                    </div>
+                </div>
+
+                <!-- Window Content -->
+                <div class="p-5 space-y-4 text-[13px] text-[#E5E5E5]">
+                    <!-- Row 1 -->
+                    <div class="flex justify-between items-center">
+                        <span class="text-[#00FF00] font-medium">● Connected to Resolve</span>
+                        <button onclick="simToggleDuration()" class="w-[55%] bg-[#2A2A2A] hover:bg-[#333] border border-[#444] py-1 rounded-full transition-colors">Toggle Duration Format</button>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="flex items-center gap-3">
+                        <label class="text-[#FCA311] w-28 whitespace-nowrap text-left">Render Preset:</label>
+                        <select class="flex-1 bg-[#1A1A1A] border border-[#333] rounded px-2 py-1 text-[#E5E5E5] outline-none focus:border-[#FCA311]">
+                            <option>AVID AAF</option>
+                            <option>Audio Only</option>
+                            <option>Dropbox - 1080p</option>
+                            <option>Dropbox - 2160p</option>
+                            <option>Dropbox - 720p</option>
+                            <option>FCP - Final Cut Pro 7</option>
+                            <option>FCP - Final Cut Pro X</option>
+                            <option>H.264 Master</option>
+                            <option>H.265 Master</option>
+                            <option>HyperDeck</option>
+                            <option>IMF - 20th Century Fox</option>
+                            <option>IMF - Generic</option>
+                            <option>IMF - HDR Vivid</option>
+                            <option>IMF - Netflix</option>
+                            <option>IMF - Sony Pictures</option>
+                            <option>IMF - iQIYI</option>
+                            <option>Premiere XML</option>
+                            <option>Presentations</option>
+                            <option>Pro Tools</option>
+                            <option>ProRes 422 HQ</option>
+                            <option>Replay - 1080p</option>
+                            <option>Replay - 2160p</option>
+                            <option>Replay - 720p</option>
+                            <option>Tencent - IMF</option>
+                            <option>Tencent - MOV</option>
+                            <option>Tencent - MP4</option>
+                            <option>TikTok - 1080p</option>
+                            <option>TikTok - 720p</option>
+                            <option>Transcription render</option>
+                            <option>VR 180/360 - Meta Quest VR</option>
+                            <option>VR 180/360 - YouTube VR</option>
+                            <option>Vimeo - 1080p</option>
+                            <option>Vimeo - 2160p</option>
+                            <option>Vimeo - 720p</option>
+                            <option>YouTube - 1080p</option>
+                            <option>YouTube - 1440p</option>
+                            <option>YouTube - 2160p</option>
+                            <option>YouTube - 720p</option>
+                            <option>h265 render cached sub</option>
+                            <option selected>h265 render non sub</option>
+                        </select>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="flex items-center gap-3">
+                        <label class="text-[#FCA311] w-28 whitespace-nowrap text-left">Output Path:</label>
+                        <input type="text" value="D:\" readonly class="flex-1 bg-[#1A1A1A] border border-[#333] rounded px-2 py-1 text-[#E5E5E5] outline-none focus:border-[#FCA311]">
+                        <button class="bg-[#2A2A2A] hover:bg-[#333] border border-[#444] px-6 py-1 rounded-full transition-colors w-[100px]">Browse</button>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="flex items-center gap-3">
+                        <label class="text-[#E5E5E5] w-28 whitespace-nowrap text-left">Select by Color:</label>
+                        <select id="sim-color-dropdown" class="bg-[#1A1A1A] border border-[#333] rounded px-2 py-1 text-[#E5E5E5] outline-none w-32 focus:border-[#FCA311]">
+                            <option></option>
+                            <option>Blue</option>
+                            <option>Green</option>
+                            <option>Red</option>
+                        </select>
+                        <button onclick="simSelectColor()" class="bg-[#2A2A2A] hover:bg-[#333] border border-[#444] px-8 py-1 rounded-full transition-colors">Select</button>
+                        <div class="flex-1"></div>
+                        <button onclick="simSelectAll()" class="bg-[#2A2A2A] hover:bg-[#333] border border-[#444] px-6 py-1 rounded-full transition-colors">Select All</button>
+                        <button onclick="simSelectNone()" class="bg-[#2A2A2A] hover:bg-[#333] border border-[#444] px-6 py-1 rounded-full transition-colors">Select None</button>
+                    </div>
+
+                    <!-- Tree/Table View -->
+                    <div class="bg-[#1C1C1C] border border-[#333] rounded h-56 overflow-y-auto mt-2">
+                        <table class="w-full text-left border-collapse" id="sim-tree-table">
+                            <thead class="sticky top-0 bg-[#242424] text-[#888] text-[12px]">
+                                <tr>
+                                    <th class="py-1 px-3 font-normal border-b border-r border-[#333]">Marker Name</th>
+                                    <th class="py-1 px-3 font-normal border-b border-r border-[#333]">Color</th>
+                                    <th class="py-1 px-3 font-normal border-b border-r border-[#333]">Duration</th>
+                                    <th class="py-1 px-3 font-normal border-b border-r border-[#333]">Start Frame</th>
+                                    <th class="py-1 px-3 font-normal border-b border-[#333]">UID</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sim-tree-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Prefix / Suffix Row -->
+                    <div class="flex items-center gap-3 pt-2">
+                        <label class="text-[#FCA311] whitespace-nowrap">Prefix:</label>
+                        <input type="text" id="ui-sim-prefix" value="" oninput="simUpdatePreview()" class="flex-1 bg-[#1A1A1A] border border-[#333] rounded px-2 py-1 text-[#E5E5E5] outline-none focus:border-[#FCA311]">
+                        <label class="text-[#FCA311] whitespace-nowrap ml-4">Suffix:</label>
+                        <input type="text" id="ui-sim-suffix" value="" oninput="simUpdatePreview()" class="flex-1 bg-[#1A1A1A] border border-[#333] rounded px-2 py-1 text-[#E5E5E5] outline-none focus:border-[#FCA311]">
+                    </div>
+
+                    <!-- Preview Label -->
+                    <div class="py-1">
+                        <span id="ui-sim-preview" class="italic text-[#E5E5E5]"><i>System Ready.</i></span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-4 pt-1">
+                        <button onclick="simProcessQueue('Added to Queue!')" class="flex-[1.5] bg-[#2A2A2A] hover:bg-[#333] border border-[#444] py-1.5 rounded-full transition-colors text-[#E5E5E5]">Add Selected to Queue</button>
+                        <button onclick="simProcessQueue('Added & Started Rendering!')" class="flex-[1.5] bg-[#2A2A2A] hover:bg-[#333] border border-[#444] py-1.5 rounded-full transition-colors text-[#E5E5E5]">Add START RENDER</button>
+                        <button class="flex-1 bg-[#2A2A2A] hover:bg-[#333] border border-[#444] py-1.5 rounded-full transition-colors text-[#E5E5E5]">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: TROUBLESHOOTING -->
+    <section id="troubleshoot" class="scroll-mt-20">
+        <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 sm:p-8">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-8 h-8 rounded-full bg-[#FCA311] text-white flex items-center justify-center font-bold">4</span>
+                <h2 class="text-2xl font-bold text-stone-900">Facing Issues? Let's Fix It!</h2>
+            </div>
+
+            <p class="text-stone-600 text-sm sm:text-base mb-6 leading-relaxed">
+                If the script doesn't open or errors out when rendering, open the DaVinci Resolve Console to see exactly what Python is reporting. Take a screenshot of the error, and send it directly to me for assistance!
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border border-stone-200 rounded-lg p-5 bg-stone-50">
+                    <h3 class="font-bold text-stone-900 text-sm mb-3">&#128187; How to open the Console:</h3>
+                    <ol class="space-y-2.5 text-xs sm:text-sm text-stone-600">
+                        <li>1. In Resolve, select <strong>Workspace > Console</strong> from the top bar.</li>
+                        <li>2. Click on the <strong>Py3</strong> tab inside the console popup.</li>
+                        <li>3. Look for red or white system error tracebacks.</li>
+                        <li>4. Capture a full screenshot of this console window.</li>
+                    </ol>
+
+                    <div class="mt-4 bg-stone-950 rounded p-3 font-mono text-[11px] text-[#FF0000] leading-normal select-none shadow-inner">
+                        <span class="text-stone-500">[Console Output Example]</span><br>
+                        Traceback (most recent call last):<br>
+                        &nbsp;&nbsp;File "marker render v2.1.py", line 42, in &lt;module&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;resolve = dvr_script.scriptapp("Resolve")<br>
+                        NameError: name 'dvr_script' is not defined
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-between space-y-4">
+                    <div class="bg-stone-50 border border-stone-200 rounded-lg p-5 flex flex-col justify-center flex-grow text-center">
+                        <span class="text-2xl mb-1">&#128248;</span>
+                        <h4 class="font-bold text-stone-900 text-sm">Send Me the Screenshot</h4>
+                        <p class="text-stone-500 text-xs mt-1">
+                            Having your console traceback screenshot is essential to locate the exact cause of any operational system error.
+                        </p>
+                    </div>
+
+                    <div class="bg-stone-900 text-white rounded-lg p-5 space-y-3.5">
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-stone-400">Support Channels</h4>
+                        <div class="space-y-2">
+                            <a href="https://www.instagram.com/toolatebysakib/" target="_blank" class="flex items-center space-x-2 text-sm text-[#FCA311] hover:underline">
+                                <span class="text-lg">&#128241;</span>
+                                <span><strong>Instagram:</strong> @toolatebysakib (Quick response)</span>
+                            </a>
+                            <a href="mailto:sa6572377@gmail.com" class="flex items-center space-x-2 text-sm text-[#FCA311] hover:underline">
+                                <span class="text-lg">&#9993;</span>
+                                <span><strong>Email:</strong> sa6572377@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+// --- Global Navigation ---
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// --- Section 2: OS Selection Logic ---
+function setOS(os) {
+    document.getElementById('os-win').classList.remove('active', 'bg-[#FCA311]', 'text-white', 'border-[#FCA311]');
+    document.getElementById('os-mac').classList.remove('active', 'bg-[#FCA311]', 'text-white', 'border-[#FCA311]');
+    
+    document.getElementById('os-win').classList.add('bg-white', 'text-stone-600', 'border-stone-300');
+    document.getElementById('os-mac').classList.add('bg-white', 'text-stone-600', 'border-stone-300');
+
+    document.getElementById('path-win').classList.add('hidden');
+    document.getElementById('path-mac').classList.add('hidden');
+    document.getElementById('mac-warning').classList.add('hidden');
+
+    const activeBtn = document.getElementById(`os-${os}`);
+    activeBtn.classList.remove('bg-white', 'text-stone-600', 'border-stone-300');
+    activeBtn.classList.add('active', 'bg-[#FCA311]', 'text-white', 'border-[#FCA311]');
+
+    document.getElementById(`path-${os}`).classList.remove('hidden');
+    
+    if (os === 'mac') {
+        document.getElementById('mac-warning').classList.remove('hidden');
+    }
+}
+
+// --- Section 3: DaVinci UI Simulator Logic ---
+let currentDurMode = 0; // 0 = frames, 1 = seconds, 2 = timecode
+const simFPS = 24.0;
+
+const simMarkersData = [
+    { id: 'uid0', name: 'Intro Clip', color: 'Blue', durationFrames: 120, start: 86400, selected: true },
+    { id: 'uid1', name: 'Outro Montage', color: 'Green', durationFrames: 240, start: 87500, selected: true },
+    { id: 'uid2', name: 'B-Roll Section', color: 'Red', durationFrames: 85, start: 88100, selected: true }
+];
+
+function framesToTimecode(frames, mode) {
+    if (mode === 0) return `${frames} Frames`;
+    if (mode === 1) return `${(frames / simFPS).toFixed(2)} s`;
+    
+    const totalSec = frames / simFPS;
+    const mins = Math.floor(totalSec / 60);
+    const secs = totalSec % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toFixed(2).padStart(5, '0')}`;
+}
+
+function renderSimTree() {
+    const tbody = document.getElementById('sim-tree-body');
+    tbody.innerHTML = '';
+    
+    simMarkersData.forEach((marker, index) => {
+        const tr = document.createElement('tr');
+        tr.className = `cursor-pointer border-b border-[#333] text-[12px] select-none ${marker.selected ? 'bg-[#3A5F8E] text-white' : 'bg-[#1C1C1C] text-[#E5E5E5] hover:bg-[#2A2A2A]'}`;
+        tr.onclick = () => {
+            marker.selected = !marker.selected;
+            renderSimTree();
+        };
+        
+        tr.innerHTML = `
+            <td class="py-1 px-3 border-r border-[#333]">${marker.name}</td>
+            <td class="py-1 px-3 border-r border-[#333]">${marker.color}</td>
+            <td class="py-1 px-3 border-r border-[#333]">${framesToTimecode(marker.durationFrames, currentDurMode)}</td>
+            <td class="py-1 px-3 border-r border-[#333]">${marker.start}</td>
+            <td class="py-1 px-3">${index}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function simToggleDuration() {
+    currentDurMode = (currentDurMode + 1) % 3;
+    renderSimTree();
+}
+
+// Select operations
+function simSelectAll() {
+    simMarkersData.forEach(m => m.selected = true);
+    renderSimTree();
+}
+
+function simSelectNone() {
+    simMarkersData.forEach(m => m.selected = false);
+    renderSimTree();
+}
+
+function simSelectColor() {
+    const targetColor = document.getElementById('sim-color-dropdown').value;
+    if(!targetColor) return;
+    simMarkersData.forEach(m => {
+        m.selected = (m.color === targetColor);
+    });
+    renderSimTree();
+}
+
+function sanitizeFilename(name) {
+    let sanitized = name.replace(/[^\w\-\s]/g, "");
+    sanitized = sanitized.replace(/\s+/g, " ");
+    return sanitized.substring(0, 120).trim();
+}
+
+function simUpdatePreview() {
+    const prefix = document.getElementById('ui-sim-prefix').value;
+    const suffix = document.getElementById('ui-sim-suffix').value;
+    const previewEl = document.getElementById('ui-sim-preview');
+    
+    if (prefix === '' && suffix === '') {
+        previewEl.innerHTML = `<i>System Ready.</i>`;
+    } else {
+        const combined = sanitizeFilename(`${prefix}MarkerName${suffix}`);
+        previewEl.innerHTML = `<i><span class="text-[#FCA311]">Filename Preview:</span> <span class="text-white">${combined}</span></i>`;
+    }
+}
+
+function simProcessQueue(successMessage) {
+    const selectedCount = simMarkersData.filter(m => m.selected).length;
+    const previewEl = document.getElementById('ui-sim-preview');
+    
+    if (selectedCount === 0) {
+        previewEl.innerHTML = `<font color='#FF0000'>ERROR: No markers selected!</font>`;
+    } else {
+        previewEl.innerHTML = `<font color='#00FF00'>Success! ${selectedCount} jobs ${successMessage}</font>`;
+        
+        // Reset message after 3 seconds
+        setTimeout(() => {
+            simUpdatePreview();
+        }, 3000);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderSimTree();
+    simUpdatePreview();
+});
+</script>
+</body>
+</html>
